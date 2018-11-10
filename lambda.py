@@ -8,10 +8,13 @@ http://amzn.to/1LGWsLG
 """
 
 from __future__ import print_function
-import requests
+import requests, configparser
 
-alexaSkillId = "amzn1.ask.skill.ed8c6f34-2a4d-417d-a7f6-a643b1873ef8"
-igdbKey = 'd1213aa0fa52512b50fcf362367e19ea'
+config = configparser.ConfigParser()
+config.read('config.ini')
+
+alexaSkillId = config['DEFAULT']['alexaSkillId']
+igdbKey = config['DEFAULT']['igdbKey']
 endpoint = 'https://api-endpoint.igdb.com'
 header = {
     'user-key' : igdbKey,
